@@ -1,0 +1,11 @@
+.img-width {
+    width: 70px;
+} 
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.mbt-80auto90 {
+    margin: 80px auto 90px;
+}

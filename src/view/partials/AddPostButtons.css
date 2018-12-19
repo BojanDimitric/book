@@ -1,0 +1,16 @@
+.display-true {
+    display: block;
+}
+
+.display-false {
+    display: none;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: 18px;
+    top: 16px;
+    color: white;
+}

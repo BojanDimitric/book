@@ -1,0 +1,53 @@
+.text, 
+.image,
+.video,
+.plus,
+.text-span,
+.image-span,
+.video-span {
+    position: fixed;
+}
+
+.text, 
+.image,
+.video,
+.plus {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.text {
+    right: 150px;
+    bottom: 350px;
+}
+
+.image {
+    right: 150px;
+    bottom: 270px;
+}
+
+.video {
+    right: 150px;
+    bottom: 190px;
+}
+
+.plus {
+    right: 150px;
+    bottom: 110px;
+}
+
+.text-span {
+    right: 110px;
+    bottom: 370px;
+}
+
+.image-span{
+    right: 95px;
+    bottom: 290px;
+}
+
+.video-span {
+    right: 100px;
+    bottom: 210px;
+}

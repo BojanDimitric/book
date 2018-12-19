@@ -7,7 +7,7 @@ const Footer = () => {
                 <footer className="page-footer font-small w-100 order-3 blue">
                     <div className="footer-copyright py-3">
                         <p className="text-center text-white">
-                            © 2018 Copyright:<a href="/feed"> BRS</a>
+                            © 2018 Copyright:<a href="/feed"> Bojan Dimitric</a>
                         </p>
                     </div>
                 </footer>

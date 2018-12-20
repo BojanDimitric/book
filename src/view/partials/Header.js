@@ -1,5 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { FaRegistered } from 'react-icons/fa';
+
+import './header.css';
 
 const Header = () => {
     return (
@@ -18,6 +22,9 @@ const Header = () => {
                     </li>
                     <li className="nav-item">
                         <Link to="/profile" className="nav-link text-white">Profile</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/login" className="nav-link text-white"><FaRegistered className="icon-static" /></Link>
                     </li>
                 </ul>
             </div>

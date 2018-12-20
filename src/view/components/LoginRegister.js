@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import './loginregister.css';
+
 class LoginRegister extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container mtb-80auto70 ">
                 <div className="row my-5">
                     <div className="col-6">
                         <h3>BitBookLogin</h3>

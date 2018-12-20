@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 import { createTextPost, createImagePost, createVideoPost } from '../../services/PostService';
 
@@ -9,9 +9,9 @@ import { Textmodal } from '../partials/Textmodal';
 import { Imagemodal } from '../partials/Imagemodal';
 import { Videomodal } from '../partials/Videomodal';
 
-import './Newpost.css';
+import './newpost.css';
 
-class Newpost extends Component {
+class Newpost extends ToggleButtons {
     constructor(props) {
         super(props)
         this.state = {
@@ -21,13 +21,12 @@ class Newpost extends Component {
         };
     }
 
-    setCreatePostComponent = (postType) => {
+    setPostType = (postType) => {
         this.setState({ postType, isModalOpen: true });
     };
 
     toggle = () => {
         const toggle = !this.state.isShown;
-
         this.setState({
             isShown: toggle
         });
@@ -46,7 +45,7 @@ class Newpost extends Component {
                     this.props.afterCreation();
                     this.closeModal();
                     this.toggle();
-                }
+                };
             });
     };
 
@@ -57,7 +56,7 @@ class Newpost extends Component {
                     this.props.afterCreation();
                     this.closeModal();
                     this.toggle();
-                }
+                };
             });
     };
 
@@ -68,18 +67,27 @@ class Newpost extends Component {
                     this.props.afterCreation();
                     this.closeModal();
                     this.toggle();
-                }
+                };
             });
+    };
+
+    showModalType = (type) => {
+        console.log(type);
+        if (type === 'text') {
+            return <Textmodal onPost={this.onTextPost} onModalClose={this.closeModal} isModalOpen={this.state.isModalOpen} />;
+        } else if (type === 'image') {
+            return <Imagemodal onPost={this.onImagePost} onModalClose={this.closeModal} isModalOpen={this.state.isModalOpen} />;
+        } else if (type === 'video') {
+            return <Videomodal onPost={this.onVideoPost} onModalClose={this.closeModal} isModalOpen={this.state.isModalOpen} />;
+        };
     };
 
     render() {
         return (
             <Fragment>
-                <AddPostButtons isShown={this.state.isShown} onTypeSelected={this.setCreatePostComponent} />
+                <AddPostButtons isShown={this.state.isShown} onTypeSelected={this.setPostType} />
                 <ToggleButtons toggle={this.toggle} />
-                <Textmodal onPost={this.onTextPost} onModalClose={this.closeModal} />
-                <Imagemodal onPost={this.onImagePost} onModalClose={this.closeModal} />
-                <Videomodal onPost={this.onVideoPost} onModalClose={this.closeModal} />
+                {this.showModalType(this.state.postType)}
             </Fragment>
         );
     };

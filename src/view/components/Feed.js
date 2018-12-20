@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import './feed.css'
@@ -46,10 +46,12 @@ class Feed extends Component {
         });
 
         return (
-            <div className="container mtb-80auto70">
-                {feedPosts}
+            <Fragment>
+                <div className="container mtb-80auto70">
+                    {feedPosts}
+                </div>
                 <Newpost afterCreation={this.loadPosts} />
-            </div>
+            </Fragment>
         );
     };
 }

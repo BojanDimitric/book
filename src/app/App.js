@@ -3,8 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../node_modules/jquery/dist/jquery';
-import '../../node_modules/popper.js/dist/popper';
-import '../../node_modules/bootstrap/dist/js/bootstrap';
+import '../../node_modules/bootstrap/dist/js/bootstrap'
 
 import { Header } from '../view/partials/Header';
 import { Footer } from '../view/partials/Footer';

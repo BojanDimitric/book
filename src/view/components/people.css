@@ -2,6 +2,10 @@
     width: 70px;
 } 
 
+.name-width {
+    width: 500px;
+}
+
 .img-circle {
     border-radius: 50%;
 }

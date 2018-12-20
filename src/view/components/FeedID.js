@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 
-import './feed.css'
+import './feed.css';
 
 import { fetchFeedID } from '../../services/FeedService';
 
@@ -19,23 +18,18 @@ class FeedID extends Component {
 
     componentDidMount() {
         fetchFeedID(this.props.match.params.id)
-            .then(feed => {
-                this.setState({
-                    feed
-                });
-            });
+            .then(feed => this.setState({ feed }));
     }
 
     render() {
         const { feed } = this.state;
-        console.log(feed);
         const post = <h1>This is not Feed!</h1>;
-        if (feed.type === "text") {
-            post = <Link to={`/post/${feed.type}/${feed.id}`}><Textpost video={feed.text} comment={feed.comments} /></Link>;
-        } else if (this.state.feed.type === "image") {
-            post = <Link to={`/post/${feed.type}/${feed.id}`}><Imagepost image={feed.image} comment={feed.comments} /></Link>;
-        } else if (this.state.feed.type === "video") {
-            post = <Link to={`/post/${feed.type}/${feed.id}`}><Videopost video={feed.video} comment={feed.comments} /></Link>;
+        if (feed.type || feed.type === "text") {
+            post = <Textpost video={feed.text} comment={feed.comments} />;
+        } else if (feed.type || feed.type === "image") {
+            post = <Imagepost image={feed.image} comment={feed.comments} />;
+        } else if (feed.type || feed.type === "video") {
+            post = <Videopost video={feed.video} comment={feed.comments} />;
         };
         return (
             <Fragment>

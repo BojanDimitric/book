@@ -33,15 +33,14 @@ class Feed extends Component {
 
     render() {
         const feedPosts = this.state.feeds.map((feed) => {
-            switch (feed.type) {
-                case 'text':
-                    return <Link to={`/Post/${feed.id}`}><Textpost video={feed.text} comment={feed.comments} /></Link>;
-                case 'image':
-                    return <Link to={`/Post/${feed.id}`}><Imagepost image={feed.image} comment={feed.comments} /></Link>;
-                case 'video':
-                    return <Link to={`/Post/${feed.id}`}><Videopost video={feed.video} comment={feed.comments} /></Link>;
-                default:
-                    return <h1>This is not Feed!</h1>;
+            if (feed.type === 'text') {
+                return <Link to={`/post/${feed.id}`}><Textpost video={feed.text} comment={feed.comments} /></Link>;
+            } else if (feed.type === 'image') {
+                return <Link to={`/post/${feed.id}`}><Imagepost image={feed.image} comment={feed.comments} /></Link>;
+            } else if (feed.type === 'video') {
+                return <Link to={`/post/${feed.id}`}><Videopost video={feed.video} comment={feed.comments} /></Link>;
+            } else {
+                return <h1>This is not Feed!</h1>;
             };
         });
 

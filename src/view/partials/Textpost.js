@@ -4,7 +4,8 @@ import { deletePost } from '../../services/DeleteService';
 class Textpost extends Component {
 
     deleteTextPost = () => {
-        deletePost(this.props.id);
+        return deletePost(this.props.id)
+            .then(isPostDeleted => console.log(isPostDeleted));
     };
 
     render() {

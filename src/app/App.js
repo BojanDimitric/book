@@ -23,7 +23,7 @@ class App extends Component {
                 <Switch>
                     <Route path='/login' component={LoginRegister} />
                     <Route path='/feed' component={Feed} />
-                    <Route path='/feed/:id' component={FeedID} />
+                    <Route path='/post/:id' component={FeedID} />
                     <Route path='/people' component={People} />
                     <Route path='/profile' component={Profile} />
                     <Route path='/users/:id' component={ProfileID} />

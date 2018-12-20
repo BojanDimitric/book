@@ -13,7 +13,7 @@ const fetchUsers = () => {
     })
         .then(response => response.json())
         .then(users => {
-            return users.map(user => { return new User(user.id, user.name, user.about, user.lastPostDate, user.avatarUrl) });
+            return users.map(user => new User(user.id, user.name, user.about, user.lastPostDate, user.avatarUrl));
         });
 };
 

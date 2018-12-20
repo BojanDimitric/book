@@ -12,9 +12,7 @@ const fetchProfile = () => {
         }
     })
         .then(response => response.json())
-        .then(profile => {
-            return new Profile(profile.userId, profile.name, profile.email, profile.aboutShort, profile.about, profile.avatarUrl, profile.postsCount, profile.commentsCount);
-        });
+        .then(profile => new Profile(profile.userId, profile.name, profile.email, profile.aboutShort, profile.about, profile.avatarUrl, profile.postsCount, profile.commentsCount));
 };
 
 const fetchProfileID = (id) => {
@@ -28,9 +26,7 @@ const fetchProfileID = (id) => {
         }
     })
         .then(response => response.json())
-        .then(profile => {
-            return new Profile(profile.userId, profile.name, profile.email, profile.aboutShort, profile.about, profile.avatarUrl, profile.postsCount, profile.commentsCount);
-        });
+        .then(profile => new Profile(profile.userId, profile.name, profile.email, profile.aboutShort, profile.about, profile.avatarUrl, profile.postsCount, profile.commentsCount));
 };
 
 export {

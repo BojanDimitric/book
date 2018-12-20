@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './addpostbuttons.css';
 
@@ -6,7 +6,7 @@ import { FaPlusCircle } from 'react-icons/fa';
 
 import { AddPostButtons } from './AddPostButtons';
 
-class ToggleButtons extends AddPostButtons {
+class ToggleButtons extends Component {
 
     render() {
         return (

@@ -2,7 +2,7 @@ import { BASE_ENDPOINT } from '../shared/Constants';
 
 const deletePost = (id) => {
     return fetch(`${BASE_ENDPOINT}/api/Posts/${id}`, {
-        method: 'POST',
+        method: 'DELETE',
         headers: {
             'Access-Control-Allow-Origin': 'no-cords',
             'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ const deletePost = (id) => {
         body: JSON.stringify({
             'id': id
         })
-    });
+    }).then(response => response.json());
 };
 
 export {

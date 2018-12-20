@@ -2,7 +2,36 @@ import React, { Component } from 'react';
 
 import './loginregister.css';
 
+import { registerUser, loginUser } from '../../services/RegisterLoginService';
+
 class LoginRegister extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            registerusername: '',
+            registeremail: '',
+            loginusername: '',
+            loginemail: ''
+        }
+    }
+
+    registerUsernameChange = (event) => this.setState({ registerusername: event.target.value });
+
+    registerPassChange = (event) => this.setState({ registeremail: event.target.value });
+
+    loginUsernameChange = (event) => this.setState({ loginusername: event.target.value });
+
+    loginPassChange = (event) => this.setState({ loginemail: event.target.value });
+
+    registerUser = () => {
+        return registerUser(this.state.registerusername, this.state.registeremail)
+            .then(response => console.log(response));
+    };
+
+    loginUser = () => {
+        return loginUser(this.state.registerusername, this.state.registeremail)
+            .then(response => console.log(response));
+    };
 
     render() {
         return (
@@ -30,18 +59,18 @@ class LoginRegister extends Component {
                                     <div className="form-group row my-3">
                                         <label className="col-2 mt-2" for="exampleInputEmail1">mail</label>
                                         <div className="col-10">
-                                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={this.loginUsernameChange} placeholder="Enter email" />
                                             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                                         </div>
                                     </div>
                                     <div className="form-group row">
                                         <label className="col-2 mt-2" for="exampleInputPassword1">pass</label>
                                         <div className="col-10">
-                                            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                            <input type="password" className="form-control" id="exampleInputPassword1" onChange={this.loginPassChange} placeholder="Password" />
                                         </div>
                                     </div>
                                     <div className="form-check pl-0">
-                                        <button type="submit" className="btn btn-primary btn-block">Login</button>
+                                        <button type="submit" className="btn btn-primary btn-block" onSubmit={this.loginUser}>Login</button>
                                     </div>
                                 </form>
                             </div>
@@ -50,18 +79,18 @@ class LoginRegister extends Component {
                                     <div className="form-group row my-3">
                                         <label className="col-2 mt-2" for="exampleInputEmail1">mail</label>
                                         <div className="col-10">
-                                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={this.registerUsernameChange} placeholder="Enter email" />
                                             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label className="col-2 mt-2" for="exampleInputPassword1">pass</label>
                                         <div className="col-10">
-                                            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                            <input type="password" className="form-control" id="exampleInputPassword1" onChange={this.loginPassChange} placeholder="Password" />
                                         </div>
                                     </div>
                                     <div class="form-check pl-0">
-                                        <button type="submit" className="btn btn-primary btn-block">Register</button>
+                                        <button type="submit" className="btn btn-primary btn-block" onSubmit={this.registerUser}>Register</button>
                                     </div>
                                 </form>
                             </div>

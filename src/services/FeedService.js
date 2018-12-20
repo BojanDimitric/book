@@ -14,16 +14,15 @@ const fetchFeeds = () => {
         .then(response => response.json())
         .then(feeds => {
             return feeds.map(feed => {
-                switch (feed.type) {
-                    case 'text':
-                        return new Text(feed.id, feed.type, feed.text, feed.commentsNum);
-                    case 'image':
-                        return new Image(feed.id, feed.type, feed.imageUrl, feed.commentsNum);
-                    case 'video':
-                        const videoUrl = (feed.videoUrl.includes('youtube') || feed.videoUrl.includes('embed')) ? feed.videoUrl : '';
-                        return new Video(feed.id, feed.type, videoUrl, feed.commentsNum);
-                    default:
-                        return null;
+                if (feed.type || feed.type === "text") {
+                    return new Text(feed.id, feed.type, feed.text, feed.commentsNum);
+                } else if (feed.type || feed.type === "text") {
+                    return new Image(feed.id, feed.type, feed.imageUrl, feed.commentsNum);
+                } else if (feed.type || feed.type === "text") {
+                    const videoUrl = (feed.videoUrl.includes('youtube') || feed.videoUrl.includes('embed')) ? feed.videoUrl : '';
+                    return new Video(feed.id, feed.type, videoUrl, feed.commentsNum);
+                } else {
+                    return null;
                 };
             });
         });
@@ -41,16 +40,15 @@ const fetchFeedID = (id) => {
     })
         .then(response => response.json())
         .then(feed => {
-            switch (feed.type) {
-                case 'text':
-                    return new Text(feed.id, feed.type, feed.text, feed.commentsNum);
-                case 'image':
-                    return new Image(feed.id, feed.type, feed.imageUrl, feed.commentsNum);
-                case 'video':
-                    const videoUrl = (feed.videoUrl.includes('youtube') || feed.videoUrl.includes('embed')) ? feed.videoUrl : '';
-                    return new Video(feed.id, feed.type, videoUrl, feed.commentsNum);
-                default:
-                    return null;
+            if (feed.type || feed.type === "text") {
+                return new Text(feed.id, feed.type, feed.text, feed.commentsNum);
+            } else if (feed.type || feed.type === "text") {
+                return new Image(feed.id, feed.type, feed.imageUrl, feed.commentsNum);
+            } else if (feed.type || feed.type === "text") {
+                const videoUrl = (feed.videoUrl.includes('youtube') || feed.videoUrl.includes('embed')) ? feed.videoUrl : '';
+                return new Video(feed.id, feed.type, videoUrl, feed.commentsNum);
+            } else {
+                return null;
             };
         });
 };

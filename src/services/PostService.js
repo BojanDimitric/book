@@ -12,7 +12,7 @@ const createTextPost = (post) => {
         body: JSON.stringify({
             text: post
         })
-    }).then(res => res.json());
+    }).then(response => response.json());
 };
 
 const createImagePost = (post) => {
@@ -27,7 +27,7 @@ const createImagePost = (post) => {
         body: JSON.stringify({
             text: post
         })
-    }).then(res => res.json());
+    }).then(response => response.json());
 };
 
 const createVideoPost = (post) => {
@@ -42,7 +42,7 @@ const createVideoPost = (post) => {
         body: JSON.stringify({
             text: post
         })
-    }).then(res => res.json());
+    }).then(response => response.json());
 };
 
 export {

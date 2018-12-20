@@ -72,7 +72,6 @@ class Newpost extends ToggleButtons {
     };
 
     showModalType = (type) => {
-        console.log(type);
         if (type === 'text') {
             return <Textmodal onPost={this.onTextPost} onModalClose={this.closeModal} isModalOpen={this.state.isModalOpen} />;
         } else if (type === 'image') {
